@@ -28,11 +28,9 @@ class PopupInteractor: PopupInteractorType {
         popupVC.view.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(popupVC.view)
         popupVC.didMove(toParent: topViewController)
-        containerView.addConstraints([
-            NSLayoutConstraint(item: popupVC.view, attribute: .bottom, relatedBy: .equal, toItem: containerView, attribute: .bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: popupVC.view, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute: .leading, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: popupVC.view, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1, constant: 0)
-            ])
+        popupVC.view.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -36).isActive = true
+        popupVC.view.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: 0).isActive = true
+        popupVC.view.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: 0).isActive = true
         popupVC.view.heightAnchor.constraint(equalToConstant: 120).isActive = true
         self.popupVC = popupVC
     }

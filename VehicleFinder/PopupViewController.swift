@@ -29,7 +29,6 @@ class PopupViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIScheme.popupBackgroundColor
         title = "Vehicle"
-        print("vehicle = \(vehicle)")
         setupUI()
         nameLabel.text = "Vehicle Name: \(vehicle.name)"
         batteryLabel.text = "Remaining Battery: \(vehicle.batteryLevel) %"
@@ -60,7 +59,7 @@ class PopupViewController: UIViewController {
             withVisualFormat: "H:|-12-[priceLabel]|",
             metrics: nil, views: views)
         constraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-16-[nameLabel]-8-[batteryLabel]-8-[priceLabel]-|",
+            withVisualFormat: "V:|-16-[nameLabel]-8-[batteryLabel]-8-[priceLabel]",
             metrics: nil, views: views)
         view.addConstraints(constraints)
     }
